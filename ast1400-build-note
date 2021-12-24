@@ -1,0 +1,34 @@
+1. Building steps:
+
+Step 1: Download the U-Boot Source Code(u-boot-2009.01).
+Step 2: Download the Cross Compiler installation file(freescale-coldfire-4.4-216-m68k-uclinux.bin).
+> https://sourcery.mentor.com/GNUToolchain/release1326
+Step 3: Install Cross Compiler.
+# you can run the installer in console mode rather than using the graphical interface. To
+do this, invoke the installer with the parameter '-i console'
+Step 4: Export the environment variable path as the below:
+> export PATH=$PATH:$HOME/CodeSourcery/Sourcery_G++_Lite/bin
+Step 5: Create the "setenv.sh" file and paste the below mesaages in this file.
+=============================================================
+#!/bin/sh
+
+CROSS_COMPILE="m68k-uclinux-"
+export CROSS_COMPILE
+ARCH=m68k
+export ARCH
+=============================================================
+Step 6: Execute the below commands in order and build the source code.
+=============================================================
+source setenv.sh
+make distclean
+make ast1300_config
+make
+=============================================================
+Step 7: Make sure that the binary file(u-boot.bin) will be created at the source code directory.
+
+2. Flashing steps
+
+step 1: Make a MS-DOS USB key
+step 2: put dos socflash and u-boot.bin in DOS key
+step 3: Boot to DOS mode in host
+step 4: socflash.exe -s u-boot.bin
