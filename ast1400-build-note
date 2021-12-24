@@ -26,7 +26,7 @@ make
 =============================================================
 Step 7: Make sure that the binary file(u-boot.bin) will be created at the source code directory.
 
-2. Flashing steps
+2. Flashing steps:
 
 step 1: Make a MS-DOS USB key
 step 2: put dos socflash and u-boot.bin in DOS key
